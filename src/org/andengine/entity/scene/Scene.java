@@ -173,6 +173,13 @@ public class Scene extends Entity {
 		return this.mTouchAreaBindingOnActionMoveEnabled;
 	}
 
+
+         public void resetPriority(){
+                  for (Entity child : this.children()){
+                          child.setIgnoreUpdate(false);
+                  }
+         }
+
 	/**
 	 * Enable or disable the binding of TouchAreas to PointerIDs (fingers).
 	 * When enabled: TouchAreas get bound to a PointerID (finger) when returning true in
