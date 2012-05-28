@@ -176,6 +176,7 @@ public class Scene extends Entity {
 
          public void resetPriority(){
                   for (Entity child : this.children()){
+                          child.setHighPriority(false);
                           child.setIgnoreUpdate(false);
                   }
          }
