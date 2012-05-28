@@ -180,12 +180,17 @@ public class Entity implements IEntity {
 	}
 
          @Override
-         public void setHighPriority(){
-                 this.mHighPriority=true;
-                 for ( Child child : this.getScene().children()){
-                         if (child.mHighPriority==false){
-                                 child.setIgnoreUpdate(true);
+         public void setHighPriority(boolean val){
+                 if(val){
+                         this.mHighPriority=true;
+                         for ( Child child : this.getScene().children()){
+                                 if (child.mHighPriority==false){
+                                         child.setIgnoreUpdate(true);
+                                 }
                          }
+                 }
+                 else{
+                         this.mHighPriority=false;
                  }
          }
          
