@@ -182,7 +182,7 @@ public class Entity implements IEntity {
          @Override
          public void setHighPriority(){
                  this.mHighPriority=true;
-                 foreach child in this.getScene().children(){
+                 for ( Child child : this.getScene().children()){
                          if (child.mHighPriority==false){
                                  child.setIgnoreUpdate(true);
                          }
