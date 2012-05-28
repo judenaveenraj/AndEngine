@@ -54,7 +54,7 @@ public class Entity implements IEntity {
 	protected boolean mIgnoreUpdate = false;
 	protected boolean mChildrenVisible = true;
 	protected boolean mChildrenIgnoreUpdate = false;
-
+         protected boolean mHighPriority=false;
 	protected int mZIndex = 0;
 
 	private IEntity mParent;
@@ -145,6 +145,21 @@ public class Entity implements IEntity {
 		return this.mIgnoreUpdate;
 	}
 
+         @Override
+         public void setHighPriority(boolean val){
+                 if(val){
+                         this.mHighPriority=true;
+                         for ( Child child : this.getScene().children()){
+                                 if (child.mHighPriority==false){
+                                         child.setIgnoreUpdate(true);
+                                 }
+                         }
+                 }
+                 else{
+                         this.mHighPriority=false;
+                 }
+         }
+         
 	@Override
 	public void setIgnoreUpdate(final boolean pIgnoreUpdate) {
 		this.mIgnoreUpdate = pIgnoreUpdate;
