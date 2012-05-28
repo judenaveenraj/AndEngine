@@ -43,7 +43,7 @@ public interface IEntity extends IDrawable, IUpdateHandler {
 
 	public boolean isChildrenIgnoreUpdate();
 	public void setChildrenIgnoreUpdate(boolean pChildrenIgnoreUpdate);
-         public void setHighPriority();
+         public void setHighPriority(boolean val);
 
 	public int getZIndex();
 	public void setZIndex(final int pZIndex);
