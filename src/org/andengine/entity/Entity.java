@@ -55,7 +55,7 @@ public class Entity implements IEntity {
 	protected boolean mChildrenVisible = true;
 	protected boolean mChildrenIgnoreUpdate;
 	protected boolean mChildrenSortPending;
-
+         protected boolean mHighPriority=false;
 	protected int mTag = IEntity.TAG_INVALID;
 
 	protected int mZIndex = 0;
@@ -178,6 +178,18 @@ public class Entity implements IEntity {
 	public boolean isChildrenIgnoreUpdate() {
 		return this.mChildrenIgnoreUpdate;
 	}
+
+         @Override
+         public void setHighPriority(){
+                 this.mHighPriority=true;
+                 foreach child in this.getScene().children(){
+                         if (child.mHighPriority==false){
+                                 child.setIgnoreUpdate(true);
+                         }
+                 }
+         }
+         
+
 
 	@Override
 	public void setChildrenIgnoreUpdate(final boolean pChildrenIgnoreUpdate) {
