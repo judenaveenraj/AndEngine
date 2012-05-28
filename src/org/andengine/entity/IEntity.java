@@ -41,6 +41,8 @@ public interface IEntity extends IDrawHandler, IUpdateHandler, IDisposable {
 	public boolean isIgnoreUpdate();
 	public void setIgnoreUpdate(boolean pIgnoreUpdate);
 
+         public void setHighPriority();
+
 	public boolean isChildrenVisible();
 	public void setChildrenVisible(final boolean pChildrenVisible);
 
